@@ -1,0 +1,71 @@
+import java.util.Scanner;
+
+public class digitPrinter
+{
+  static int testCounter = 0;
+  static int testsFailed = 0;
+
+  public static void error(String s)
+  {
+    System.out.println(s);
+    testsFailed++;    
+  }
+  
+  public static void compare(int expected, int acquired)
+  {
+    if (expected != acquired) error("Test " + testCounter + ": Expected: " + expected + " Acquired: " + acquired);
+    testCounter++;
+  }
+
+  public static void main(String[] args)
+  {
+   // int number;
+    
+    Scanner in = new Scanner(System.in);
+    System.out.println("Enter value:");
+   //  do {
+//         System.out.println("Please enter a positive number!");
+//         while (!in.hasNextDouble()) {
+//             System.out.println("That's not a number!");
+//             in.next(); 
+//         }
+//         number = in.nextInt();
+//     } while (number <= 0);
+//     System.out.println("Thank you! Got " + number);
+    
+    int num = in.nextInt();
+  //  if(num
+    digitExtractor d = new digitExtractor(num);
+    
+    
+    
+
+    compare(5, d.nextDigit());
+    compare(4, d.nextDigit());
+    compare(3, d.nextDigit());
+    compare(2, d.nextDigit());
+    compare(1, d.nextDigit());
+    
+ 
+    
+    d.reset();
+    
+
+
+    
+   digitExtractor myExtractor = new digitExtractor(num);
+        System.out.println(myExtractor.nextDigit());
+        System.out.println(myExtractor.nextDigit());        
+        System.out.println(myExtractor.nextDigit());
+        System.out.println(myExtractor.nextDigit());
+        System.out.println(myExtractor.nextDigit());
+
+
+    //
+	 // Add More Tests
+	 // 
+
+    System.out.println("Failed: " + testsFailed + " / " + testCounter);
+    System.out.println("Passed: " + (testCounter - testsFailed) + " / " + testCounter);
+  }
+}
