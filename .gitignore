@@ -1,6 +1,35 @@
-*.class
+public class digitExtractor
+{
 
-# Package Files #
-*.jar
-*.war
-*.ear
+
+   private int original;
+   private int working;
+   
+   public digitExtractor(int n)
+   {
+   original = Math.abs(n);
+   working = Math.abs(n);   
+   }
+   
+   
+   
+   public int nextDigit()
+   {
+      int temp = 0;
+      if(working!=0)
+      {
+      temp=working % 10;
+      working = working / 10;
+      }
+      
+      return temp;
+   }
+   
+   
+   public void reset()
+   {
+   working = original;
+   }
+
+
+}
